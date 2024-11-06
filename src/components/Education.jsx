@@ -8,8 +8,6 @@ function Education({ school, setSchool, studyTitle, setStudyTitle, studyDate, se
         <input className="input-style border rounded p-2 mb-3 bg-gray-100" type="text" value={school} onChange={(e) => setSchool(e.target.value)} disabled={!isEditing} />
         <label className='block mb-2'>Title of Study</label>
         <input  className="input-style border rounded p-2 mb-3 bg-gray-100" type="text" value={studyTitle} onChange={(e) => setStudyTitle(e.target.value)} disabled={!isEditing} />
-        <label className='block mb-2' >Date of Study</label>
-        <input className="input-style border rounded p-2 mb-3 bg-gray-100"  type="date" value={studyDate} onChange={(e) => setStudyDate(e.target.value)} disabled={!isEditing} />
         <label className='block mb-2' >Start Date</label>
         <input className="input-style border rounded p-2 mb-3 bg-gray-100"  type="date" value={schoolStartDate} onChange={(e) => setSchoolStartDate(e.target.value)} disabled={!isEditing} />
         <label className='block mb-2' >End Date</label>
