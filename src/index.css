@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input-style{
+    @apply border border-gray-600 focus:shadow-md rounded px-3 py-2 focus:border-blue-400 transition
+}
+.label-style{
+    @apply block font-medium mb-1
+}
