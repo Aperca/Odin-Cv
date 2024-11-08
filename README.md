@@ -25,4 +25,4 @@ npm run dev
 ```
 
 ### Live Demo
-Check out the live version on Vercel: [Online Link](https://cv-builder-sigma-rust.vercel.app/) (Add your link here after deployment)
+Check out the live version on Vercel: [Live Link](https://cv-builder-sigma-rust.vercel.app/) 
