@@ -8,21 +8,21 @@ function GeneralInfo({ name, setName, email, setEmail, phone, setLocation, locat
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          disabled={!isEditing}
+          disabled={!isEditing} required
         />
         <label className='block mb-2'>Email</label>
         <input 
           type="email" className='input-style border rounded p-2 mb-3 bg-gray-100'
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          disabled={!isEditing}
+          disabled={!isEditing} required
         />
         <label className="block mb-2">Phone Number</label>
         <input
           type="tel" className='input-style border rounded p-2 mb-3 bg-gray-100 '
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
-          disabled={!isEditing}
+          disabled={!isEditing} required
         />
         <label className="block mb-2">Location</label>
         <input

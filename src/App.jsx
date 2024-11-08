@@ -12,34 +12,10 @@ export default function App() {
   const [location, setLocation] = useState('');
 
   const [isEditing, setIsEditing] = useState(true);
-  const [submitted, setSubmitted] = useState(false);
 
   const [showGeneral, setShowGeneral] = useState(true);
   const [showEducation, setShowEducation] = useState(false);
   const [showExperience, setShowExperience] = useState(false);
-
-  const handleToggleSection = (section) => {
-    if (section === 'general') setShowGeneral(!showGeneral);
-    if (section === 'education') setShowEducation(!showEducation);
-    if (section === 'experience') setShowExperience(!showExperience);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsEditing(false);
-    setSubmitted(true);
-  };
-
-  const handleEdit = () => {
-    setIsEditing(true);
-    setSubmitted(false);
-  };
-
-  const handleDownload = () => {
-    const element = document.getElementById('preview-section');
-    html2pdf().from(element).save('MyCV.pdf');
-  };
-
   // State for Education and Experience sections
   const [school, setSchool] = useState("");
   const [studyTitle, setStudyTitle] = useState("");
@@ -51,6 +27,27 @@ export default function App() {
   const [responsibilities, setResponsibilities] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+
+  const handleToggleSection = (section) => {
+    if (section === 'general') setShowGeneral(!showGeneral);
+    if (section === 'education') setShowEducation(!showEducation);
+    if (section === 'experience') setShowExperience(!showExperience);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsEditing(false);
+  };
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleDownload = () => {
+    const element = document.getElementById('preview-section');
+    html2pdf().from(element).save('MyCV.pdf');
+  };
+
 
   return (
     <div className="flex space-x-4 p-4">
@@ -98,7 +95,7 @@ export default function App() {
               />
             )}
           </div>
-
+              
           {/* Professional Experience Section */}
           <div className="mb-4">
             <div
@@ -133,14 +130,14 @@ export default function App() {
 
       {/* Preview Section */}
       <div className="w-1/2 border-l p-6 pl-10 bg-gray-50 flex flex-col">
-        {submitted && (
+    
           <div id="preview-section" className="bg-gray-100 p-6 rounded-lg flex-grow">
-            <h3 className="text-center font-bold text-3xl mb-6 text-blue-800">{name}</h3>
-            <div className="flex flex-col md:flex-row justify-center gap-6 text-lg text-gray-700 mb-6">
-              <p className="flex items-center gap-2"><MailIcon className="w-5 h-5 text-gray-600" /> {email}</p>
-              <p className="flex items-center gap-2"><PhoneIcon className="w-5 h-5 text-gray-600" /> {phone}</p>
-              <p className="flex items-center gap-2"><LocationMarkerIcon className="w-5 h-5 text-gray-600" /> {location}</p>
-            </div>
+          <h3 className="text-center font-bold text-3xl mb-6 text-blue-800">{name}</h3>
+          <div className="flex flex-col md:flex-row justify-center gap-6 text-lg text-gray-700 mb-6">
+            <p className="flex items-center gap-2"><MailIcon className="w-5 h-5 text-gray-600" /> {email}</p>
+            <p className="flex items-center gap-2"><PhoneIcon className="w-5 h-5 text-gray-600" /> {phone}</p>
+            <p className="flex items-center gap-2"><LocationMarkerIcon className="w-5 h-5 text-gray-600" /> {location}</p>
+          </div>
 
             <div className="my-6 shadow-lg p-4 rounded-md border">
               <h3 className="text-lg mb-2 text-blue-800 font-semibold">Education</h3>
@@ -157,17 +154,16 @@ export default function App() {
               <p>{responsibilities}</p>
             </div>
           </div>
-        )}
+      
         
         {/* Download CV Button */}
-        {submitted && (
           <button
             onClick={handleDownload}
             className="bg-gray-500 text-white py-2 px-4 rounded mt-4 self-end"
           >
             Download CV
           </button>
-        )}
+  
       </div>
     </div>
   );
